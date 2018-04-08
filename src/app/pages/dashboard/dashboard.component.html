@@ -1,0 +1,8 @@
+<div class="row" *ngIf="!isSelected">
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6" *ngFor="let tender of tenders; let i = index" 
+   (click)="selectItem(tender)">
+    <ngx-solar [chartValue]="72" [data]="tender"></ngx-solar>
+
+    <!-- <ngx-kitten></ngx-kitten> -->
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<nb-card size="medium">
+  <nb-card-body>
+    <div class="picture">
+      <swiper [config]="config">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let img of selectedItem.imageUrls; let i = index">
+            <img [src]="img.imageUrl" alt="">
+          </div>
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </swiper>
+    </div>
+
+    <div class="details">
+      <div class="title">
+        REF No: {{selectedItem.referenceNumber}} ({{selectedItem.name}})
+      </div>
+      <div class="parameter">
+        <span class="parameter-name">Posted date: {{selectedItem.dateTimePosted | date:'medium'}}</span>
+        <!-- <br>
+        <span class="parameter-value">Last updated: {{selectedItem.lastUpdateOn | date:'medium' }}</span> -->
+      </div>
+
+      <div class="description">
+        <span *ngFor="let telNo of selectedItem.telNos">
+          <span class="i-contact nb-phone"></span>
+          <span>{{telNo.telNo}}</span>
+        </span>
+      </div>
+      <!-- <div class="contact" ngFor="let telNo of selectedItem.telNos">
+        <nb-user [picture]="" [name]="'0770320574'" [title]="'MOBILE'" size="large"></nb-user>
+        <i class="i-contact nb-phone"></i>
+      </div> -->
+      <div>
+        <span *ngFor="let add of selectedItem.addresses">
+          <span>{{ add.address }}</span>,
+        </span>
+      </div>
+      <div class="description">
+        {{selectedItem.description}}
+      </div>
+    </div>
+  </nb-card-body>
+
+
+  <nb-card-footer>
+    <div>
+      <i class="ion-ios-world"></i>
+      <span class="details">{{selectedItem.district}}</span>
+    </div>
+    <!-- <a href="https://itunes.apple.com/us/app/kitten-tricks/id1246143230" target="_blank">
+      <i class="ion-social-apple"></i>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" target="_blank">
+      <i class="ion-social-android"></i>
+    </a>
+    <a href="https://github.com/akveo/react-native-ui-kitten" target="_blank">
+      <i class="ion-social-github"></i>
+    </a> -->
+  </nb-card-footer>
+</nb-card>
